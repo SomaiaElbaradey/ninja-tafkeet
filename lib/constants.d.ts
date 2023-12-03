@@ -1,4 +1,5 @@
 // IDE Feat
+import { Currency } from "./helpers";
 
 export declare const ZERO = "صفر";
 export declare const AND = "و";
@@ -13,7 +14,7 @@ export declare const CURRENCY = {
     fraction: "قرش",
     fractions: "قروش",
     decimals: 2,
-};
+} as const satisfies Currency;
 
 export declare const ONES = {
     1: "واحد",
@@ -28,7 +29,7 @@ export declare const ONES = {
     10: "عشرة",
     11: "أحد عشر",
     12: "اثنى عشر",
-};
+} as const;
 
 export declare const TENS = {
     1: "عشر",
@@ -40,7 +41,7 @@ export declare const TENS = {
     7: "سبعون",
     8: "ثمانون",
     9: "تسعون",
-};
+} as const;
 
 export declare const HUNDREDS = {
     1: "مائة",
@@ -52,18 +53,18 @@ export declare const HUNDREDS = {
     7: "سبعمائة",
     8: "ثمانمائة",
     9: "تسعمائة",
-};
+} as const;
 
 export declare const THOUSANDS = {
     1: "ألف",
     2: "ألفان",
     39: "آلاف",
     1199: "ألفًا",
-};
+} as const;
 
 export declare const MILLIONS = {
     1: "مليون",
     2: "مليونان",
     39: "ملايين",
     1199: "مليونًا",
-};
+} as const;
