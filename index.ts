@@ -5,6 +5,8 @@
  * @author Somaia Elbaradey
  */
 
+
+
 // import * as bla from './constants'
 // export const tafkeet = (number: number | string) => {
 
@@ -32,17 +34,17 @@
 // export function generatePath<S extends string>(path: S, params?: ExtractRouteParams<S>): string;
 
 
-interface MathFuncs {
-    divide(a: number, b: number): number;
-    multiply(a: number, b: number): number;
-  }
+// interface MathFuncs {
+//     divide(a: number, b: number): number;
+//     multiply(a: number, b: number): number;
+//   }
   
-  const mathFunctions: MathFuncs = {
-    divide: (a, b) => a / b,
-    multiply: (a, b) => a * b
-  };
+//   const mathFunctions: MathFuncs = {
+//     divide: (a, b) => a / b,
+//     multiply: (a, b) => a * b
+//   };
   
-  export = mathFunctions;
+//   export = mathFunctions;
 
 
 //   var json_stringify = require('./lib/stringify.js').stringify;
@@ -104,3 +106,12 @@ interface MathFuncs {
 
 // Webpack
 // Rollup
+
+// import {tafkeet} from "./lib/tafkeet";
+// console.log(tafkeet(1), tafkeet(2), tafkeet(3))
+
+// 
+
+// export const tafkeet = (number: number) => ones(number as any)
+
+// console.log(tafkeet(1), tafkeet(2), tafkeet(3))
