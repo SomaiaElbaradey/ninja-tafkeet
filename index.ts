@@ -5,13 +5,10 @@
  * @author Somaia Elbaradey
  */
 
-
-
 // import * as bla from './constants'
 // export const tafkeet = (number: number | string) => {
 
-    
-//     // see the length of the number 
+//     // see the length of the number
 // }
 
 // export = React;
@@ -33,19 +30,17 @@
 
 // export function generatePath<S extends string>(path: S, params?: ExtractRouteParams<S>): string;
 
-
 // interface MathFuncs {
 //     divide(a: number, b: number): number;
 //     multiply(a: number, b: number): number;
 //   }
-  
+
 //   const mathFunctions: MathFuncs = {
 //     divide: (a, b) => a / b,
 //     multiply: (a, b) => a * b
 //   };
-  
-//   export = mathFunctions;
 
+//   export = mathFunctions;
 
 //   var json_stringify = require('./lib/stringify.js').stringify;
 // var json_parse     = require('./lib/parse.js');
@@ -69,7 +64,6 @@
 // import type * as _ts from 'typescript';
 // transformers?: _ts.CustomTransformers | ((p: _ts.Program) => _ts.CustomTransformers);
 
-
 // declare const axios: AxiosStatic;
 // types: index.d.ts
 // index.js: exports
@@ -82,7 +76,7 @@
 //   Axios,
 // }
 
-// dist/ minified version of 
+// dist/ minified version of
 
 // This module is intended to unwrap Axios default export as named.
 // Keep top-level export same with static properties
@@ -110,7 +104,7 @@
 // import {tafkeet} from "./lib/tafkeet";
 // console.log(tafkeet(1), tafkeet(2), tafkeet(3))
 
-// 
+//
 
 // export const tafkeet = (number: number) => ones(number as any)
 
