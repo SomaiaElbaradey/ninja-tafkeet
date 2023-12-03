@@ -1,9 +1,10 @@
-// for IDE features
+// IDE Feat
 
 export declare const ZERO = "صفر";
 export declare const AND = "و";
 export declare const SPACE = " ";
-export declare const ONE_AND_ONLY = "فقط لا غير";
+export declare const ONLY = "فقط ";
+export declare const ONE_AND_ONLY = " لا غير";
 export declare const MAX_DIGITS_LENGTH = 7;
 
 export declare const CURRENCY = {

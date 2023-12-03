@@ -1,3 +1,4 @@
+import { CURRENCY, ONE_AND_ONLY, ONLY } from "../constants";
 import { typeofDigitsIsDefined, validDigits } from "./validation";
 
 /**
@@ -19,13 +20,10 @@ export const numberParts = (digits: string | number) => {
 };
 
 /**
- * Return parts of the digits 
+ * Return parts of the digits
  */
-// function getNth(number, first, end){
-//     var finalNumber = "";
-//     for (var i=first;i<=end;i++){
-//         finalNumber = finalNumber + String (number).charAt(i);
-//     }
-//     return finalNumber;
-// }
+export const getDigitsNth = (digits: string, first: number, end: number) =>
+    digits.substring(first, end + 1);
 
+export const addSuffixPrefix = (arabicWords: string) =>
+    `${ONLY} ${arabicWords} ${CURRENCY.singular} ${ONE_AND_ONLY}`;
