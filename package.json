@@ -1,7 +1,7 @@
 {
   "name": "ninja-tafkeet",
   "version": "1.0.0",
-  "description": "",
+  "description":  "tafqeet from english numbers to arabic words",
   "main": "index.ts",
   "directories": {
     "lib": "lib",
