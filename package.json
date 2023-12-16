@@ -1,21 +1,21 @@
 {
-  "name": "ninja-tafkeet",
-  "version": "1.0.0",
-  "description":  "tafqeet from english numbers to arabic words",
-  "main": "index.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint-prettier": "prettier '**/*.{ts,js,md}' --write"
-  },
-  "typings": "./lib/constants.d.ts",
-  "author": "SomaiaElbaradey",
-  "license": "ISC",
-  "dependencies": {
-    "@types/node": "^20.10.2",
-    "prettier": "^3.1.0"
-  }
+    "name": "ninja-tafkeet",
+    "version": "0.0.1",
+    "description": "tafqeet from english numbers to arabic words",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "author": "SomaiaElbaradey",
+    "license": "ISC",
+    "scripts": {
+        "dev": "vitest",
+        "test": "vitest run",
+        "build": "tsup index.ts --format cjs,esm --dts",
+        "lint": "tsc"
+    },
+    "devDependencies": {
+        "tsup": "^8.0.1",
+        "typescript": "^5.3.3",
+        "vitest": "^1.0.4"
+    }
 }
