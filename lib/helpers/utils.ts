@@ -27,3 +27,12 @@ export const getDigitsNth = (digits: string, first: number, end: number) =>
 
 export const addSuffixPrefix = (arabicWords: string) =>
   `${ONLY} ${arabicWords} ${CURRENCY.singular} ${ONE_AND_ONLY}`
+
+/**
+ * create new type out of parse int to avoid crashes
+ * ex: type NumericStrings = "1" | "42" | "100";
+ * type Numbers = ParseInt<NumericStrings>; // Results in 1 | 42 | 100
+ */
+export type ParseInt<T extends string> = T extends `${infer Int extends number}`
+  ? Int
+  : never
