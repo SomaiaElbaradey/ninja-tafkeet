@@ -5,7 +5,7 @@
  * @author Somaia Elbaradey
  */
 
-import { tafkeet } from "./lib/tafkeet";
+import { tafkeet } from './lib/tafkeet'
 
 // import * as bla from './constants'
 // export const tafkeet = (number: number | string) => {

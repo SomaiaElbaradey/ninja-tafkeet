@@ -1,11 +1,11 @@
-import { describe, expect, it } from "vitest";
-import { tafkeet } from "./lib/tafkeet";
+import { describe, expect, it } from 'vitest'
+import { tafkeet } from './lib/tafkeet'
 
-describe("Reading numbers from 1 - 999", () => {
-    it("should read 1", () => {
-        expect(tafkeet(1)).toBe("واحد");
-    });
-});
+describe('Reading numbers from 1 - 999', () => {
+  it('should read 1', () => {
+    expect(tafkeet(1)).toBe('واحد')
+  })
+})
 
 // var Tafgeet = require('../index');
 
