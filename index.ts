@@ -5,6 +5,8 @@
  * @author Somaia Elbaradey
  */
 
+import { tafkeet } from "./lib/tafkeet";
+
 // import * as bla from './constants'
 // export const tafkeet = (number: number | string) => {
 
@@ -108,4 +110,4 @@
 
 // export const tafkeet = (number: number) => ones(number as any)
 
-// console.log(tafkeet(1), tafkeet(2), tafkeet(3))
+console.log(tafkeet(1), tafkeet(2), tafkeet(3))
