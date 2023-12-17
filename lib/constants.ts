@@ -27,8 +27,11 @@ export const ONES = {
   8: 'ثمانية',
   9: 'تسعة',
   10: 'عشرة',
-  11: 'أحد عشر',
-  12: 'اثنى عشر',
+} as const
+
+export const ONES_TENS = {
+  1: 'أحدَ',
+  2: 'اثنا',
 } as const
 
 export const TENS = {
