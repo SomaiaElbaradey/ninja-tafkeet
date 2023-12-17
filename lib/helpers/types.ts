@@ -3,12 +3,14 @@ import {
   HUNDREDS,
   MILLIONS,
   ONES,
+  ONES_TENS,
   TENS,
   THOUSANDS,
 } from '../constants'
 
 export type Ones = keyof typeof ONES
 export type Tens = keyof typeof TENS
+export type OnesTens = keyof typeof ONES_TENS
 export type Hundreds = keyof typeof HUNDREDS
 export type Thousands = keyof typeof THOUSANDS
 export type Millions = keyof typeof MILLIONS

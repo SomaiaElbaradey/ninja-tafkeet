@@ -1,15 +1,15 @@
 import {
   ArabicWords,
-  Ones,
   digitsIsDefined,
-  isKey,
+  getOnes,
+  getTens,
   numberParts,
-  ones,
   validDigits,
 } from './helpers'
-import { ONES, SPACE } from './constants'
+import { SPACE, ZERO } from './constants'
 
 export const tafkeet = (number: number) => {
+  // truncate zeross
   const wholeStringNumber = number?.toString()
   if (!validDigits(wholeStringNumber) || !digitsIsDefined(wholeStringNumber))
     return SPACE
@@ -17,16 +17,13 @@ export const tafkeet = (number: number) => {
   const { base, fraction } = numberParts(number)
   const [stringBase, stringFraction] = [base?.toString(), fraction?.toString()]
 
-  let one: ArabicWords
-  if (stringBase?.length === 1 && isKey(ONES, number)) {
-    one = ones(number)
-    return one
-    // + Fraction
-  }
+  if (base === 0) return ZERO
+  // zero check (base, fraction)
 
+  // let one: ArabicWords
   // Fraction handler
   if (stringFraction?.length) {
   }
-}
 
-console.log(tafkeet(1), tafkeet(2), tafkeet(3))
+  return getOnes(stringBase, number) || getTens(stringBase, number)
+}

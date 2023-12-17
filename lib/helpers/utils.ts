@@ -1,5 +1,5 @@
-import { CURRENCY, ONES, ONE_AND_ONLY, ONLY } from '../constants'
-import { ArabicWords, CurrentCurrency, Ones } from './types'
+import { AND, CURRENCY, ONES, ONE_AND_ONLY, ONLY } from '../constants'
+import { ArabicWords, CurrentCurrency, Ones, ParseInt } from './types'
 import { digitsIsDefined, validDigits } from './validation'
 
 /**
@@ -34,7 +34,7 @@ export const numberParts = (digits: string | number) => {
 /**
  * Return parts of the digits
  */
-export const getDigitsNth = (digits: string, first: number, end: number) =>
+export const getNthDigits = (digits: string, first: number, end: number) =>
   digits.substring(first, end + 1)
 
 export const addSuffixPrefix = (
@@ -42,6 +42,8 @@ export const addSuffixPrefix = (
   currency: CurrentCurrency
 ) => `${ONLY} ${arabicWords} ${currency} ${ONE_AND_ONLY}`
 
-// ones -> if it exists in any of theses
-// util : separate each word by "and"
-// sing plural
+/**
+ * Separate each word by "and"
+ */
+export const separateByAnd = (digits: string) =>
+  digits.split(' ').join(` ${AND}`)
