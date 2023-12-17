@@ -17,7 +17,7 @@ export const CURRENCY = {
 } as const satisfies Currency
 
 export const ONES = {
-  1: 'واحد',
+  1: 'واحد', //singular
   2: 'اثنان',
   3: 'ثلاثة',
   4: 'أربعة',
@@ -27,8 +27,11 @@ export const ONES = {
   8: 'ثمانية',
   9: 'تسعة',
   10: 'عشرة',
-  11: 'أحد عشر',
-  12: 'اثنى عشر',
+} as const
+
+export const ONES_TENS = {
+  1: 'أحدَ',
+  2: 'اثنا',
 } as const
 
 export const TENS = {

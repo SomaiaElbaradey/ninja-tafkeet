@@ -1,8 +1,29 @@
-import { ones } from './helpers'
-import { ONES } from './constants'
+import {
+  ArabicWords,
+  digitsIsDefined,
+  getOnes,
+  getTens,
+  numberParts,
+  validDigits,
+} from './helpers'
+import { SPACE, ZERO } from './constants'
 
 export const tafkeet = (number: number) => {
-  if (number) ones(number as any)
-}
+  // truncate zeross
+  const wholeStringNumber = number?.toString()
+  if (!validDigits(wholeStringNumber) || !digitsIsDefined(wholeStringNumber))
+    return SPACE
 
-console.log(tafkeet(1), tafkeet(2), tafkeet(3))
+  const { base, fraction } = numberParts(number)
+  const [stringBase, stringFraction] = [base?.toString(), fraction?.toString()]
+
+  if (base === 0) return ZERO
+  // zero check (base, fraction)
+
+  // let one: ArabicWords
+  // Fraction handler
+  if (stringFraction?.length) {
+  }
+
+  return getOnes(stringBase, number) || getTens(stringBase, number)
+}
