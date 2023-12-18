@@ -9,7 +9,7 @@ import {
 import { SPACE, ZERO } from './constants'
 
 export const tafkeet = (number: number) => {
-  // truncate zeross
+  // truncate zeros on the left
   const wholeStringNumber = number?.toString()
   if (!validDigits(wholeStringNumber) || !digitsIsDefined(wholeStringNumber))
     return SPACE
