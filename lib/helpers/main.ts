@@ -14,17 +14,17 @@ export const getOnes = (stringBase: string, digits: number) => {
 
 export const getTens = (stringBase: string, digits: number) => {
   if (stringBase.length === 2) {
-    let onesValue = undefined
-    let tensValue = undefined
-
     const onesDigit = digits % 10
     const tensDigit = Math.floor(digits / 10)
+
+    let onesValue = undefined
 
     if ((onesDigit === 1 || onesDigit === 2) && tensDigit === 1)
       onesValue = isKey(ONES_TENS, onesDigit) && onesTens(onesDigit)
     else onesValue = getOnes(stringBase[1]!, onesDigit)
 
-    if (tensDigit && isKey(TENS, tensDigit)) tensValue = tens(tensDigit)
+    const tensValue =
+      tensDigit && isKey(TENS, tensDigit) ? tens(tensDigit) : undefined
 
     const localizedValue = tensValue
       ? `${onesValue || ''}${(onesValue && ' ') || ''}${tensValue}`
