@@ -31,6 +31,7 @@ export type ArabicWords =
   | (typeof HUNDREDS)[Hundreds]
   | (typeof THOUSANDS)[Thousands]
   | (typeof MILLIONS)[Millions]
+  | (typeof ONES_TENS)[OnesTens]
 
 /**
  * create new type out of parse int to avoid crashes

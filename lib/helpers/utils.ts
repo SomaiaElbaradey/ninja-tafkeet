@@ -40,7 +40,10 @@ export const getNthDigits = (digits: string, first: number, end: number) =>
 export const addSuffixPrefix = (
   arabicWords: string,
   currency: CurrentCurrency
-) => `${ONLY} ${arabicWords} ${currency} ${ONE_AND_ONLY}`
+) => {
+  // arabicWords: truncate it to not have extra spaces in the start or the end
+  return `${ONLY} ${arabicWords} ${currency} ${ONE_AND_ONLY}`
+}
 
 /**
  * Separate each word by "and"
