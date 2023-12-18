@@ -1,6 +1,7 @@
 import {
   ArabicWords,
   digitsIsDefined,
+  getHundreds,
   getOnes,
   getTens,
   numberParts,
@@ -25,5 +26,9 @@ export const tafkeet = (number: number) => {
   if (stringFraction?.length) {
   }
 
-  return getOnes(stringBase, number) || getTens(stringBase, number)
+  return (
+    getOnes(stringBase, number) ||
+    getTens(stringBase, number) ||
+    getHundreds(stringBase, number)
+  )
 }

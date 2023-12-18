@@ -17,4 +17,10 @@ describe('Reading numbers from 1 - 999', () => {
   it('should read 96', () => {
     expect(tafkeet(96)).toBe('ستة وتسعون')
   })
+  it('should read 999', () => {
+    expect(tafkeet(999)).toBe('تسعمائة وتسعة وتسعون')
+  })
+  it('should read 600', () => {
+    expect(tafkeet(600)).toBe('ستمائة ')
+  })
 })
