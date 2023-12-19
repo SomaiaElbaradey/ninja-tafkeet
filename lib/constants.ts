@@ -1,12 +1,14 @@
-// IDE Feat
-import { Currency } from './helpers'
+// IDE
+import { Currency, ZeroDefault } from './helpers'
 
+export const STRING_ZER0 = '0'
 export const ZERO = 'صفر'
 export const AND = 'و'
 export const SPACE = ' '
 export const ONLY = 'فقط '
 export const ONE_AND_ONLY = ' لا غير'
 export const MAX_DIGITS_LENGTH = 7
+export const ZERO_NUMBER: ZeroDefault = 0
 
 export const CURRENCY = {
   singular: 'جنيهًا مصري',

@@ -4,6 +4,7 @@ import {
   MILLIONS,
   ONES,
   ONES_TENS,
+  STRING_ZER0,
   TENS,
   THOUSANDS,
 } from '../constants'
@@ -41,3 +42,5 @@ export type ArabicWords =
 export type ParseInt<T extends string> = T extends `${infer Int extends number}`
   ? Int
   : never
+
+export type ZeroDefault = ParseInt<typeof STRING_ZER0>

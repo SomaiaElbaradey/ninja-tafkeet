@@ -1,9 +1,9 @@
 import {
-  ArabicWords,
   digitsIsDefined,
   getHundreds,
   getOnes,
   getTens,
+  // getThousands,
   numberParts,
   validDigits,
 } from './helpers'
@@ -30,5 +30,6 @@ export const tafkeet = (number: number) => {
     getOnes(stringBase, number) ||
     getTens(stringBase, number) ||
     getHundreds(stringBase, number)
+    //|| getThousands(stringBase, number)
   )
 }

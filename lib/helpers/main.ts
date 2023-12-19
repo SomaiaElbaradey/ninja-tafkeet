@@ -10,8 +10,8 @@ export const hundreds = (value: Hundreds): ArabicWords => HUNDREDS[value]
 /**
  * The below functions generate Arabic Tafkeet based on the provided parameters.
  *
- * @param stringBase - A string representing the number.
- * @param digits - A number representing the value of the number.
+ * @param {string} stringBase - representing the number.
+ * @param {number} digits - representing the value of the number.
  * @returns Arabic Tafkeet string, considering whether it's ones, tens, etc.
  */
 
@@ -56,10 +56,11 @@ export const getHundreds = (stringBase: string, digits: number) => {
     const tensTafkeet = getTens(tensString, parseInt(tensString))
 
     const hundredsDigit = Math.floor(digits / 100)
-    let hundredsValue = undefined
 
-    if (hundredsDigit && isKey(HUNDREDS, hundredsDigit))
-      hundredsValue = hundreds(hundredsDigit) satisfies ArabicWords
+    const hundredsValue =
+      hundredsDigit && isKey(HUNDREDS, hundredsDigit)
+        ? (hundreds(hundredsDigit) satisfies ArabicWords)
+        : undefined
 
     const hundredsTafkeet = hundredsValue
       ? `${hundredsValue} ${tensTafkeet ? AND + tensTafkeet : ''}`

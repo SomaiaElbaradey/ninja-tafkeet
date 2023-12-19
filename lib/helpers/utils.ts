@@ -1,5 +1,12 @@
-import { AND, CURRENCY, ONES, ONE_AND_ONLY, ONLY } from '../constants'
-import { ArabicWords, CurrentCurrency, Ones, ParseInt } from './types'
+import {
+  AND,
+  CURRENCY,
+  ONE_AND_ONLY,
+  ONLY,
+  STRING_ZER0,
+  ZERO_NUMBER,
+} from '../constants'
+import { CurrentCurrency } from './types'
 import { digitsIsDefined, validDigits } from './validation'
 
 /**
@@ -17,13 +24,15 @@ export const isKey = <T extends object>(
  * Extract the number parts (base, fraction) from the digits
  */
 export const numberParts = (digits: string | number) => {
-  let stringDigits = '0'
+  let stringDigits = STRING_ZER0
   if (digitsIsDefined(digits))
     stringDigits = typeof digits !== 'string' ? digits?.toString() : digits
 
-  const [base = '0', fraction = '0'] = stringDigits.split('.')
-  const baseNumber = validDigits(base) ? parseInt(base) : 0
-  const fractionNumber = validDigits(fraction) ? parseInt(fraction) : 0
+  const [base = STRING_ZER0, fraction = STRING_ZER0] = stringDigits.split('.')
+  const baseNumber = validDigits(base) ? parseInt(base) : ZERO_NUMBER
+  const fractionNumber = validDigits(fraction)
+    ? parseInt(fraction)
+    : ZERO_NUMBER
 
   return {
     base: baseNumber,
