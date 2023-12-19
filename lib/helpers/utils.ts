@@ -59,3 +59,8 @@ export const addSuffixPrefix = (
  */
 export const separateByAnd = (digits: string) =>
   digits.split(' ').join(` ${AND}`)
+
+export const truncateLeadingZeros = (numString: string) => {
+  const digits = numString.replace(/^0+/, '')
+  return digits || undefined
+}

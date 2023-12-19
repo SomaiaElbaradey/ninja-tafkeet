@@ -3,7 +3,7 @@ import {
   getHundreds,
   getOnes,
   getTens,
-  // getThousands,
+  getThousands,
   numberParts,
   validDigits,
 } from './helpers'
@@ -29,7 +29,7 @@ export const tafkeet = (number: number) => {
   return (
     getOnes(stringBase, number) ||
     getTens(stringBase, number) ||
-    getHundreds(stringBase, number)
-    //|| getThousands(stringBase, number)
+    getHundreds(stringBase, number) ||
+    getThousands(stringBase, number)
   )
 }
