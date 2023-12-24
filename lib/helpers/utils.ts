@@ -1,11 +1,14 @@
 import {
   AND,
   CURRENCY,
+  EMPTY_STRING,
   ONE_AND_ONLY,
   ONLY,
+  SPACE,
   STRING_ZER0,
   ZERO_NUMBER,
 } from '../constants'
+import { getHundreds, getOnes, getTens } from './main'
 import { CurrentCurrency } from './types'
 import { digitsIsDefined, validDigits } from './validation'
 
@@ -50,7 +53,9 @@ export const addSuffixPrefix = (
   arabicWords: string,
   currency: CurrentCurrency
 ) => {
-  // arabicWords: truncate it to not have extra spaces in the start or the end
+  const curr = CURRENCY[currency]
+  console.log(curr)
+
   return `${ONLY} ${arabicWords} ${currency} ${ONE_AND_ONLY}`
 }
 
@@ -62,5 +67,53 @@ export const separateByAnd = (digits: string) =>
 
 export const truncateLeadingZeros = (numString: string) => {
   const digits = numString.replace(/^0+/, '')
-  return digits || undefined
+  return digits || EMPTY_STRING
+}
+
+export const getThousandsSecondaryParts = (otherDigits: string) => {
+  let extraTafkeet = undefined
+
+  if (otherDigits.length === 3)
+    extraTafkeet = getHundreds(otherDigits, parseInt(otherDigits, 10))
+
+  if (otherDigits.length === 2)
+    extraTafkeet = getTens(otherDigits, parseInt(otherDigits, 10))
+
+  if (otherDigits.length === 1)
+    extraTafkeet = getOnes(otherDigits, parseInt(otherDigits, 10))
+
+  return extraTafkeet
+}
+
+//Handler for hundreds part of the thousand number
+export const handleHundredsPart = (stringBase: string) => {
+  let length = stringBase.length
+  const hundredsString = getNthDigits(stringBase, length - 3, length - 1)
+
+  const otherDigits = truncateLeadingZeros(hundredsString)
+
+  const extraTafkeet = otherDigits
+    ? getThousandsSecondaryParts(otherDigits)
+    : undefined
+
+  return extraTafkeet
+}
+
+/** Arabic final tafkeet for thousands depending on
+ * its thousandsValue, firstPartLocalization and extraFinalTafkeet part
+ **/
+export const wholeThousandsTafkeet = (
+  thousandsValue: string | undefined,
+  firstPartLocalization: string | undefined,
+  extraTafkeet: string | undefined
+) => {
+  const thousandsTafkeet = thousandsValue
+    ? `${
+        firstPartLocalization
+          ? `${firstPartLocalization}${SPACE}`
+          : EMPTY_STRING
+      }${thousandsValue} ${extraTafkeet ? AND + extraTafkeet : EMPTY_STRING}`
+    : undefined
+
+  return thousandsTafkeet?.trim()
 }

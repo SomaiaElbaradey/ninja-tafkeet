@@ -5,6 +5,7 @@ export const STRING_ZER0 = '0'
 export const ZERO = 'صفر'
 export const AND = 'و'
 export const SPACE = ' '
+export const EMPTY_STRING = ''
 export const ONLY = 'فقط '
 export const ONE_AND_ONLY = ' لا غير'
 export const MAX_DIGITS_LENGTH = 7
@@ -60,16 +61,32 @@ export const HUNDREDS = {
   9: 'تسعمائة',
 } as const
 
-export const THOUSANDS = {
+export const THOUSANDS_FOUR_DIGITS = {
   1: 'ألف',
   2: 'ألفان',
-  39: 'آلاف',
-  1199: 'ألفًا',
+  default: 'آلاف',
 } as const
 
-export const MILLIONS = {
+export const THOUSANDS_FIVE_DIGITS = {
+  10: 'آلاف',
+  default: 'ألفًا',
+} as const
+
+export const THOUSANDS_SIX_DIGITS = {
+  default: 'ألفًا',
+} as const
+
+export const THOUSANDS =
+  THOUSANDS_FOUR_DIGITS || THOUSANDS_FIVE_DIGITS || THOUSANDS_SIX_DIGITS
+
+export const MILLIONS_SEVEN_DIGITS = {
   1: 'مليون',
   2: 'مليونان',
-  39: 'ملايين',
-  1199: 'مليونًا',
+  default: 'ملايين',
 } as const
+
+export const MILLIONS_DEFAULT = {
+  default: 'مليونًا',
+} as const
+
+export const MILLIONS = MILLIONS_SEVEN_DIGITS || MILLIONS_DEFAULT
