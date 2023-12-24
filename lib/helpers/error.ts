@@ -1,7 +1,8 @@
-// Call error when something is wrong.
-export const error = (message: string) => {
+import { EMPTY_STRING } from '../constants'
+
+export const error = (message?: string) => {
   throw {
     name: 'SyntaxError',
-    message,
+    message: message || EMPTY_STRING,
   }
 }
