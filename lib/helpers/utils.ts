@@ -86,7 +86,7 @@ export const getThousandsSecondaryParts = (otherDigits: string) => {
 }
 
 //Handler for hundreds part of the thousand number
-export const handleHundredsPart = (stringBase: string) => {
+export const handleThousandsHundredsPart = (stringBase: string) => {
   let length = stringBase.length
   const hundredsString = getNthDigits(stringBase, length - 3, length - 1)
 
@@ -100,7 +100,7 @@ export const handleHundredsPart = (stringBase: string) => {
 }
 
 /** Arabic final tafkeet for thousands depending on
- * its thousandsValue, firstPartLocalization and extraFinalTafkeet part
+ * its thousandsValue, firstPartLocalization and extra secondary Tafkeet part
  **/
 export const wholeThousandsTafkeet = (
   thousandsValue: string | undefined,

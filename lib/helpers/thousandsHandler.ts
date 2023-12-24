@@ -8,7 +8,7 @@ import { getHundreds, getTens, ones } from './main'
 import {
   getNthDigits,
   isKey,
-  handleHundredsPart,
+  handleThousandsHundredsPart,
   wholeThousandsTafkeet,
 } from './utils'
 
@@ -34,7 +34,7 @@ const handleFourDigitsThousands = (stringBase: string) => {
       ? ones(thousandStringIndex)
       : undefined
 
-  const extraTafkeet = handleHundredsPart(stringBase)
+  const extraTafkeet = handleThousandsHundredsPart(stringBase)
 
   const thousandsTafkeet = wholeThousandsTafkeet(
     thousandsValue,
@@ -60,7 +60,7 @@ const handleFiveDigitsThousands = (stringBase: string) => {
     ? THOUSANDS_FIVE_DIGITS[thousandsIndex]
     : undefined
 
-  const extraTafkeet = handleHundredsPart(stringBase)
+  const extraTafkeet = handleThousandsHundredsPart(stringBase)
 
   const thousandsTafkeet = wholeThousandsTafkeet(
     thousandsValue,
@@ -80,7 +80,7 @@ const handleSixDigitsThousands = (stringBase: string) => {
 
   const thousandsValue = THOUSANDS_SIX_DIGITS['default']
 
-  const extraTafkeet = handleHundredsPart(stringBase)
+  const extraTafkeet = handleThousandsHundredsPart(stringBase)
   const thousandsTafkeet = wholeThousandsTafkeet(
     thousandsValue,
     firstPartLocalization,
