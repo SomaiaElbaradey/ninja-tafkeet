@@ -8,19 +8,19 @@ export const SPACE = ' '
 export const EMPTY_STRING = ''
 export const ONLY = 'فقط '
 export const ONE_AND_ONLY = ' لا غير'
-export const MAX_DIGITS_LENGTH = 7
+export const MAX_DIGITS_LENGTH = 9
 export const ZERO_NUMBER: ZeroDefault = 0
 
 export const CURRENCY = {
   singular: 'جنيهًا مصري',
   plural: 'جنيهات مصرية',
-  fraction: 'قرش',
+  fraction: 'قرشًا',
   fractions: 'قروش',
   decimals: 2,
 } as const satisfies Currency
 
 export const ONES = {
-  1: 'واحد', //singular
+  1: 'واحد',
   2: 'اثنان',
   3: 'ثلاثة',
   4: 'أربعة',
