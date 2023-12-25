@@ -75,18 +75,19 @@ export const truncateLeadingZeros = (numString: string) => {
 
 export const generateNumericTafkeet = (numericString: string) => {
   let tafkeetComponent = undefined
+  let numericVal = parseInt(numericString, 10)
 
   if ([4, 5, 6].includes(numericString.length))
     tafkeetComponent = getThousands(numericString)
 
   if (numericString.length === 3)
-    tafkeetComponent = getHundreds(numericString, parseInt(numericString, 10))
+    tafkeetComponent = getHundreds(numericString, numericVal)
 
   if (numericString.length === 2)
-    tafkeetComponent = getTens(numericString, parseInt(numericString, 10))
+    tafkeetComponent = getTens(numericString, numericVal)
 
   if (numericString.length === 1)
-    tafkeetComponent = getOnes(numericString, parseInt(numericString, 10))
+    tafkeetComponent = getOnes(numericString, numericVal)
 
   return tafkeetComponent
 }

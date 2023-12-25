@@ -2,14 +2,13 @@ import {
   THOUSANDS_FOUR_DIGITS,
   THOUSANDS_FIVE_DIGITS,
   THOUSANDS_SIX_DIGITS,
-  ONES,
 } from '../constants'
-import { getHundreds, getTens, ones } from './main'
 import {
   getNthDigits,
   isKey,
   handleThousandsHundredsPart,
   generateLocalizedTafkeet,
+  generateNumericTafkeet,
 } from './utils'
 
 /**
@@ -30,8 +29,8 @@ function handleFourDigitsThousands(stringBase: string) {
     : undefined
 
   const firstPartLocalization =
-    thousandsIndex === 'default' && isKey(ONES, thousandStringIndex)
-      ? ones(thousandStringIndex)
+    thousandsIndex === 'default'
+      ? generateNumericTafkeet(thousandStringIndex)
       : undefined
 
   const extraTafkeet = handleThousandsHundredsPart(stringBase)
@@ -47,10 +46,7 @@ function handleFourDigitsThousands(stringBase: string) {
 
 function handleFiveDigitsThousands(stringBase: string) {
   const thousandsDigits = getNthDigits(stringBase, 0, 1)
-  const firstPartLocalization = getTens(
-    thousandsDigits,
-    parseInt(thousandsDigits)
-  )
+  const firstPartLocalization = generateNumericTafkeet(thousandsDigits)
 
   const thousandsIndex = ['10'].includes(thousandsDigits)
     ? thousandsDigits
@@ -75,10 +71,7 @@ function handleSixDigitsThousands(stringBase: string) {
 
   const numberDigits = parseInt(stringBase)
   if (!numberDigits) return undefined
-  const firstPartLocalization = getHundreds(
-    thousandsDigits,
-    parseInt(thousandsDigits)
-  )
+  const firstPartLocalization = generateNumericTafkeet(thousandsDigits)
 
   const thousandsValue = thousandsDigits
     ? THOUSANDS_SIX_DIGITS['default']
