@@ -9,6 +9,7 @@ import {
   ZERO_NUMBER,
 } from '../constants'
 import { getHundreds, getOnes, getTens } from './main'
+import { getThousands } from './thousandsHandler'
 import { CurrentCurrency } from './types'
 import { digitsIsDefined, validDigits } from './validation'
 
@@ -28,11 +29,13 @@ export const isKey = <T extends object>(
  */
 export const numberParts = (digits: string | number) => {
   let stringDigits = STRING_ZER0
+
   if (digitsIsDefined(digits))
     stringDigits = typeof digits !== 'string' ? digits?.toString() : digits
 
   const [base = STRING_ZER0, fraction = STRING_ZER0] = stringDigits.split('.')
   const baseNumber = validDigits(base) ? parseInt(base) : ZERO_NUMBER
+
   const fractionNumber = validDigits(fraction)
     ? parseInt(fraction)
     : ZERO_NUMBER
@@ -47,7 +50,7 @@ export const numberParts = (digits: string | number) => {
  * Return parts of the digits
  */
 export const getNthDigits = (digits: string, first: number, end: number) =>
-  digits.substring(first, end + 1)
+  truncateLeadingZeros(digits.substring(first, end + 1))
 
 export const addSuffixPrefix = (
   arabicWords: string,
@@ -70,19 +73,22 @@ export const truncateLeadingZeros = (numString: string) => {
   return digits || EMPTY_STRING
 }
 
-export const getThousandsSecondaryParts = (otherDigits: string) => {
-  let extraTafkeet = undefined
+export const generateNumericTafkeet = (numericString: string) => {
+  let tafkeetComponent = undefined
 
-  if (otherDigits.length === 3)
-    extraTafkeet = getHundreds(otherDigits, parseInt(otherDigits, 10))
+  if ([4, 5, 6].includes(numericString.length))
+    tafkeetComponent = getThousands(numericString)
 
-  if (otherDigits.length === 2)
-    extraTafkeet = getTens(otherDigits, parseInt(otherDigits, 10))
+  if (numericString.length === 3)
+    tafkeetComponent = getHundreds(numericString, parseInt(numericString, 10))
 
-  if (otherDigits.length === 1)
-    extraTafkeet = getOnes(otherDigits, parseInt(otherDigits, 10))
+  if (numericString.length === 2)
+    tafkeetComponent = getTens(numericString, parseInt(numericString, 10))
 
-  return extraTafkeet
+  if (numericString.length === 1)
+    tafkeetComponent = getOnes(numericString, parseInt(numericString, 10))
+
+  return tafkeetComponent
 }
 
 //Handler for hundreds part of the thousand number
@@ -93,7 +99,7 @@ export const handleThousandsHundredsPart = (stringBase: string) => {
   const otherDigits = truncateLeadingZeros(hundredsString)
 
   const extraTafkeet = otherDigits
-    ? getThousandsSecondaryParts(otherDigits)
+    ? generateNumericTafkeet(otherDigits)
     : undefined
 
   return extraTafkeet
@@ -102,18 +108,16 @@ export const handleThousandsHundredsPart = (stringBase: string) => {
 /** Arabic final tafkeet for thousands depending on
  * its thousandsValue, firstPartLocalization and extra secondary Tafkeet part
  **/
-export const wholeThousandsTafkeet = (
-  thousandsValue: string | undefined,
-  firstPartLocalization: string | undefined,
-  extraTafkeet: string | undefined
+export const generateLocalizedTafkeet = (
+  numericValue: string | undefined,
+  prefixLocalization: string | undefined,
+  suffixTafkeet: string | undefined
 ) => {
-  const thousandsTafkeet = thousandsValue
+  const localizedTafkeet = numericValue
     ? `${
-        firstPartLocalization
-          ? `${firstPartLocalization}${SPACE}`
-          : EMPTY_STRING
-      }${thousandsValue} ${extraTafkeet ? AND + extraTafkeet : EMPTY_STRING}`
+        prefixLocalization ? `${prefixLocalization}${SPACE}` : EMPTY_STRING
+      }${numericValue} ${suffixTafkeet ? AND + suffixTafkeet : EMPTY_STRING}`
     : undefined
 
-  return thousandsTafkeet?.trim()
+  return localizedTafkeet?.trim()
 }

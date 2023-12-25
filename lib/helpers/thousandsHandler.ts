@@ -9,7 +9,7 @@ import {
   getNthDigits,
   isKey,
   handleThousandsHundredsPart,
-  wholeThousandsTafkeet,
+  generateLocalizedTafkeet,
 } from './utils'
 
 /**
@@ -19,7 +19,7 @@ import {
  * @returns Arabic Tafkeet string, considering whether it's Thousands and Millions.
  */
 
-const handleFourDigitsThousands = (stringBase: string) => {
+function handleFourDigitsThousands(stringBase: string) {
   const thousandStringIndex = getNthDigits(stringBase, 0, 0)
   const thousandsIndex = ['1', '2'].includes(thousandStringIndex)
     ? thousandStringIndex
@@ -36,7 +36,7 @@ const handleFourDigitsThousands = (stringBase: string) => {
 
   const extraTafkeet = handleThousandsHundredsPart(stringBase)
 
-  const thousandsTafkeet = wholeThousandsTafkeet(
+  const thousandsTafkeet = generateLocalizedTafkeet(
     thousandsValue,
     firstPartLocalization,
     extraTafkeet
@@ -45,7 +45,7 @@ const handleFourDigitsThousands = (stringBase: string) => {
   return thousandsTafkeet
 }
 
-const handleFiveDigitsThousands = (stringBase: string) => {
+function handleFiveDigitsThousands(stringBase: string) {
   const thousandsDigits = getNthDigits(stringBase, 0, 1)
   const firstPartLocalization = getTens(
     thousandsDigits,
@@ -62,7 +62,7 @@ const handleFiveDigitsThousands = (stringBase: string) => {
 
   const extraTafkeet = handleThousandsHundredsPart(stringBase)
 
-  const thousandsTafkeet = wholeThousandsTafkeet(
+  const thousandsTafkeet = generateLocalizedTafkeet(
     thousandsValue,
     firstPartLocalization,
     extraTafkeet
@@ -70,18 +70,22 @@ const handleFiveDigitsThousands = (stringBase: string) => {
   return thousandsTafkeet
 }
 
-const handleSixDigitsThousands = (stringBase: string) => {
+function handleSixDigitsThousands(stringBase: string) {
   const thousandsDigits = getNthDigits(stringBase, 0, 2)
 
+  const numberDigits = parseInt(stringBase)
+  if (!numberDigits) return undefined
   const firstPartLocalization = getHundreds(
     thousandsDigits,
     parseInt(thousandsDigits)
   )
 
-  const thousandsValue = THOUSANDS_SIX_DIGITS['default']
+  const thousandsValue = thousandsDigits
+    ? THOUSANDS_SIX_DIGITS['default']
+    : undefined
 
   const extraTafkeet = handleThousandsHundredsPart(stringBase)
-  const thousandsTafkeet = wholeThousandsTafkeet(
+  const thousandsTafkeet = generateLocalizedTafkeet(
     thousandsValue,
     firstPartLocalization,
     extraTafkeet
@@ -90,7 +94,7 @@ const handleSixDigitsThousands = (stringBase: string) => {
   return thousandsTafkeet
 }
 
-export const getThousands = (stringBase: string) => {
+export function getThousands(stringBase: string) {
   let tafkeetedVal = undefined
 
   if (stringBase.length === 4)

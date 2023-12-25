@@ -2,6 +2,7 @@ import {
   CURRENCY,
   HUNDREDS,
   MILLIONS,
+  MILLIONS_SEVEN_DIGITS,
   ONES,
   ONES_TENS,
   STRING_ZER0,
@@ -17,6 +18,7 @@ export type Hundreds = keyof typeof HUNDREDS
 export type Thousands = keyof typeof THOUSANDS
 export type ThousandsFiveDigits = keyof typeof THOUSANDS_FIVE_DIGITS
 export type Millions = keyof typeof MILLIONS
+export type MillionsSeven = keyof typeof MILLIONS_SEVEN_DIGITS
 
 export type Currency = {
   singular: string
