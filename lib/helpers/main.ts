@@ -28,13 +28,13 @@ export const hundreds = (value: Hundreds): ArabicWords => HUNDREDS[value]
  * @returns Arabic Tafkeet string, considering whether it's ones, tens and hundreds.
  */
 
-export const getOnes = (stringBase: string, digits: number) => {
+export function getOnes(stringBase: string, digits: number) {
   if (stringBase?.length === 1 && isKey(ONES, digits))
     return ones(digits).trim()
   return undefined
 }
 
-export const getTens = (stringBase: string, digits: number) => {
+export function getTens(stringBase: string, digits: number) {
   if (stringBase.length === 2) {
     const onesDigit = digits % 10
     const tensDigit = Math.floor(digits / 10)
@@ -66,9 +66,9 @@ export const getTens = (stringBase: string, digits: number) => {
   return undefined
 }
 
-export const getHundreds = (stringBase: string, digits: number) => {
+export function getHundreds(stringBase: string, digits: number) {
   if (stringBase.length === 3) {
-    const tensString = truncateLeadingZeros(getNthDigits(stringBase, 1, 2))
+    const tensString = getNthDigits(stringBase, 1, 2)
 
     let tensTafkeet = undefined
     if (tensString.length == 1)
