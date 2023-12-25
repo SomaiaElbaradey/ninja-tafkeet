@@ -1,5 +1,5 @@
 import { assert, describe, expect, it } from 'vitest'
-import { tafkeet } from './lib/tafkeet'
+import { tafkeet } from '../tafkeet'
 
 describe('Reading numbers', () => {
   it('should read 1', () => {
