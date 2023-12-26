@@ -1,6 +1,7 @@
 import {
   digitsIsDefined,
   error,
+  generateNumericTafkeet,
   getHundreds,
   getMillions,
   getNthDigits,
@@ -13,36 +14,33 @@ import {
 } from './helpers'
 import { CURRENCY, SPACE, ZERO } from './constants'
 
-export const baseTafkeet = (number: number) => {
+export const wholeStringTafkeet = (number: number) => {
   const { base, fraction } = numberParts(number)
-
-  if (base === 0) return ZERO
+  if (base === 0) return { baseTafkeet: ZERO }
 
   const wholeStringNumber = truncateLeadingZeros(number?.toString())
   if (!validDigits(wholeStringNumber) || !digitsIsDefined(wholeStringNumber))
-    return SPACE
+    return { baseTafkeet: SPACE }
 
   const [stringBase, stringFraction] = [base.toString()!, fraction.toString()!]
-
-  // Fraction handler -> zero, ...
 
   let fractionTafkeet = undefined
 
   if (stringFraction?.length) {
     const fractionDigits = getNthDigits(stringFraction, 0, CURRENCY.decimals)
-    fractionTafkeet = getTens(fractionDigits, fraction)
+    fractionTafkeet = generateNumericTafkeet(fractionDigits)
   }
 
-  const wholeTafkeetedString =
+  const baseTafkeet =
     getOnes(stringBase, number) ||
     getTens(stringBase, number) ||
     getHundreds(stringBase, number) ||
     getThousands(stringBase) ||
     getMillions(stringBase)
 
-  return wholeTafkeetedString
+  return { baseTafkeet, fractionTafkeet }
 }
 
 export const tafkeet = (number: number) => {
-  const base = baseTafkeet(number)
+  const { baseTafkeet, fractionTafkeet } = wholeStringTafkeet(number)
 }

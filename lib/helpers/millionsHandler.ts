@@ -12,6 +12,14 @@ import {
   generateLocalizedTafkeet,
 } from './utils'
 
+/**
+ * The below function generate Arabic Tafkeet based on the provided parameters.
+ *
+ * @param {string} stringBase - representing the number.
+ * @param {boolean} useDefault - differentiate between special cases of millions and the default.
+ * @returns Arabic Tafkeet string, considering whether it's Millions.
+ */
+
 function getMillionsTafkeet(stringBase: string, useDefault: boolean = false) {
   const millionsStringIndex = getNthDigits(stringBase, 0, stringBase.length - 7)
 

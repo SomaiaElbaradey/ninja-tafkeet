@@ -15,7 +15,7 @@ import {
  * The below functions generate Arabic Tafkeet based on the provided parameters.
  *
  * @param {string} stringBase - representing the number.
- * @returns Arabic Tafkeet string, considering whether it's Thousands and Millions.
+ * @returns Arabic Tafkeet string, considering whether it's Thousands.
  */
 
 function handleFourDigitsThousands(stringBase: string) {
