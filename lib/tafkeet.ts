@@ -13,7 +13,7 @@ import {
 } from './helpers'
 import { CURRENCY, SPACE, ZERO } from './constants'
 
-export const tafkeet = (number: number) => {
+export const baseTafkeet = (number: number) => {
   const { base, fraction } = numberParts(number)
 
   if (base === 0) return ZERO
@@ -24,8 +24,10 @@ export const tafkeet = (number: number) => {
 
   const [stringBase, stringFraction] = [base.toString()!, fraction.toString()!]
 
-  let fractionTafkeet = undefined
   // Fraction handler -> zero, ...
+
+  let fractionTafkeet = undefined
+
   if (stringFraction?.length) {
     const fractionDigits = getNthDigits(stringFraction, 0, CURRENCY.decimals)
     fractionTafkeet = getTens(fractionDigits, fraction)
@@ -38,5 +40,9 @@ export const tafkeet = (number: number) => {
     getThousands(stringBase) ||
     getMillions(stringBase)
 
-  return wholeTafkeetedString || error()
+  return wholeTafkeetedString
+}
+
+export const tafkeet = (number: number) => {
+  const base = baseTafkeet(number)
 }
