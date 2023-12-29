@@ -10,7 +10,7 @@ import {
 } from '../constants'
 import { getHundreds, getOnes, getTens } from './main'
 import { getThousands } from './thousandsHandler'
-import { CurrentCurrency } from './types'
+import { AddSuffixPrefix, GenerateLocalizedTafkeet } from '../types'
 import { digitsIsDefined, validDigits } from './validation'
 
 /**
@@ -37,7 +37,8 @@ export const numberParts = (digits: string | number) => {
   const baseNumber = validDigits(base) ? parseInt(base) : ZERO_NUMBER
 
   const fractionNumber = validDigits(fraction)
-    ? parseInt(fraction)
+    ? // ? Number.parseFloat(fraction).toFixed(CURRENCY.decimals)
+      Number.parseInt(fraction)
     : ZERO_NUMBER
 
   return {
@@ -52,14 +53,15 @@ export const numberParts = (digits: string | number) => {
 export const getNthDigits = (digits: string, first: number, end: number) =>
   truncateLeadingZeros(digits.substring(first, end + 1))
 
-export const addSuffixPrefix = (
-  arabicWords: string,
-  currency: CurrentCurrency
-) => {
-  const curr = CURRENCY[currency]
-  console.log(curr)
-
-  return `${ONLY} ${arabicWords} ${currency} ${ONE_AND_ONLY}`
+export const addSuffixPrefix = ({
+  baseTafkeet,
+  fractionTafkeet,
+  baseCurrency,
+  fractionCurrency,
+}: AddSuffixPrefix) => {
+  return `${ONLY} ${baseTafkeet} ${baseCurrency}${
+    fractionTafkeet ? ` ${AND}${fractionTafkeet} ${fractionCurrency}` : ''
+  } ${ONE_AND_ONLY}`
 }
 
 /**
@@ -109,11 +111,11 @@ export const handleThousandsHundredsPart = (stringBase: string) => {
 /** Arabic final tafkeet for thousands depending on
  * its thousandsValue, firstPartLocalization and extra secondary Tafkeet part
  **/
-export const generateLocalizedTafkeet = (
-  numericValue: string | undefined,
-  prefixLocalization: string | undefined,
-  suffixTafkeet: string | undefined
-) => {
+export const generateLocalizedTafkeet = ({
+  numericValue,
+  prefixLocalization,
+  suffixTafkeet,
+}: GenerateLocalizedTafkeet) => {
   const localizedTafkeet = numericValue
     ? `${
         prefixLocalization ? `${prefixLocalization}${SPACE}` : EMPTY_STRING
