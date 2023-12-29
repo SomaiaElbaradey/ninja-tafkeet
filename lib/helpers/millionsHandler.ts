@@ -1,9 +1,4 @@
-import {
-  AND,
-  MILLIONS_DEFAULT,
-  MILLIONS_SEVEN_DIGITS,
-  ONES,
-} from '../constants'
+import { MILLIONS_DEFAULT, MILLIONS_SEVEN_DIGITS, ONES } from '../constants'
 import { ones } from './main'
 import {
   getNthDigits,
@@ -49,11 +44,11 @@ function getMillionsTafkeet(stringBase: string, useDefault: boolean = false) {
 
   const extraTafkeet = generateNumericTafkeet(extraDigits)
 
-  return generateLocalizedTafkeet(
-    millionsValue,
-    firstPartLocalization,
-    extraTafkeet
-  )
+  return generateLocalizedTafkeet({
+    numericValue: millionsValue,
+    prefixLocalization: firstPartLocalization,
+    suffixTafkeet: extraTafkeet,
+  })
 }
 
 export function getMillions(stringBase: string) {

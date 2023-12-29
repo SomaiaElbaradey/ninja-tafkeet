@@ -35,11 +35,11 @@ function handleFourDigitsThousands(stringBase: string) {
 
   const extraTafkeet = handleThousandsHundredsPart(stringBase)
 
-  const thousandsTafkeet = generateLocalizedTafkeet(
-    thousandsValue,
-    firstPartLocalization,
-    extraTafkeet
-  )
+  const thousandsTafkeet = generateLocalizedTafkeet({
+    numericValue: thousandsValue,
+    prefixLocalization: firstPartLocalization,
+    suffixTafkeet: extraTafkeet,
+  })
 
   return thousandsTafkeet
 }
@@ -58,11 +58,11 @@ function handleFiveDigitsThousands(stringBase: string) {
 
   const extraTafkeet = handleThousandsHundredsPart(stringBase)
 
-  const thousandsTafkeet = generateLocalizedTafkeet(
-    thousandsValue,
-    firstPartLocalization,
-    extraTafkeet
-  )
+  const thousandsTafkeet = generateLocalizedTafkeet({
+    numericValue: thousandsValue,
+    prefixLocalization: firstPartLocalization,
+    suffixTafkeet: extraTafkeet,
+  })
   return thousandsTafkeet
 }
 
@@ -78,11 +78,11 @@ function handleSixDigitsThousands(stringBase: string) {
     : undefined
 
   const extraTafkeet = handleThousandsHundredsPart(stringBase)
-  const thousandsTafkeet = generateLocalizedTafkeet(
-    thousandsValue,
-    firstPartLocalization,
-    extraTafkeet
-  )
+  const thousandsTafkeet = generateLocalizedTafkeet({
+    numericValue: thousandsValue,
+    prefixLocalization: firstPartLocalization,
+    suffixTafkeet: extraTafkeet,
+  })
 
   return thousandsTafkeet
 }

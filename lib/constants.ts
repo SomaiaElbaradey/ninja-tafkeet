@@ -6,12 +6,13 @@ export const ZERO = 'صفر'
 export const AND = 'و'
 export const SPACE = ' '
 export const EMPTY_STRING = ''
-export const ONLY = 'فقط '
-export const ONE_AND_ONLY = ' لا غير'
+export const ONLY = 'فقط'
+export const ONE_AND_ONLY = 'لا غير'
 export const MAX_DIGITS_LENGTH = 9
 export const ZERO_NUMBER: ZeroDefault = 0
 
 export const CURRENCY = {
+  default: 'جنيه مصري',
   singular: 'جنيهًا مصري',
   plural: 'جنيهات مصرية',
   fraction: 'قرشًا',
