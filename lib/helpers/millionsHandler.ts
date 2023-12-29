@@ -1,9 +1,4 @@
-import {
-  AND,
-  MILLIONS_DEFAULT,
-  MILLIONS_SEVEN_DIGITS,
-  ONES,
-} from '../constants'
+import { MILLIONS_DEFAULT, MILLIONS_SEVEN_DIGITS, ONES } from '../constants'
 import { ones } from './main'
 import {
   getNthDigits,
@@ -11,6 +6,14 @@ import {
   isKey,
   generateLocalizedTafkeet,
 } from './utils'
+
+/**
+ * The below function generate Arabic Tafkeet based on the provided parameters.
+ *
+ * @param {string} stringBase - representing the number.
+ * @param {boolean} useDefault - differentiate between special cases of millions and the default.
+ * @returns Arabic Tafkeet string, considering whether it's Millions.
+ */
 
 function getMillionsTafkeet(stringBase: string, useDefault: boolean = false) {
   const millionsStringIndex = getNthDigits(stringBase, 0, stringBase.length - 7)
@@ -41,11 +44,11 @@ function getMillionsTafkeet(stringBase: string, useDefault: boolean = false) {
 
   const extraTafkeet = generateNumericTafkeet(extraDigits)
 
-  return generateLocalizedTafkeet(
-    millionsValue,
-    firstPartLocalization,
-    extraTafkeet
-  )
+  return generateLocalizedTafkeet({
+    numericValue: millionsValue,
+    prefixLocalization: firstPartLocalization,
+    suffixTafkeet: extraTafkeet,
+  })
 }
 
 export function getMillions(stringBase: string) {

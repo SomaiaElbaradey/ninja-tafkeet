@@ -7,13 +7,8 @@ import {
   SPACE,
   TENS,
 } from '../constants'
-import { ArabicWords, Hundreds, Ones, OnesTens, Tens } from './types'
-import {
-  getNthDigits,
-  isKey,
-  separateByAnd,
-  truncateLeadingZeros,
-} from './utils'
+import { ArabicWords, Hundreds, Ones, OnesTens, Tens } from '../types'
+import { getNthDigits, isKey, separateByAnd } from './utils'
 
 export const ones = (value: Ones): ArabicWords => ONES[value]
 export const onesTens = (value: OnesTens): ArabicWords => ONES_TENS[value]

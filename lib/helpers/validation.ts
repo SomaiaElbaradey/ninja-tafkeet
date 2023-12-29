@@ -10,4 +10,4 @@ export const digitsIsDefined = (stringNumber: string | number): boolean =>
  * Digits are numbers and not more than millions
  */
 export const validDigits = (digits: string): boolean =>
-  /^[0-9]+$/.test(digits) && digits.length <= MAX_DIGITS_LENGTH
+  /^[0-9]+(\.[0-9]+)?$/.test(digits) && digits.length <= MAX_DIGITS_LENGTH

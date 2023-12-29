@@ -9,7 +9,7 @@ import {
   TENS,
   THOUSANDS,
   THOUSANDS_FIVE_DIGITS,
-} from '../constants'
+} from './constants'
 
 export type Ones = keyof typeof ONES
 export type Tens = keyof typeof TENS
@@ -26,6 +26,7 @@ export type Currency = {
   fraction: string
   fractions: string
   decimals: number
+  default: string
 }
 
 export type CurrentCurrency = keyof typeof CURRENCY
@@ -49,3 +50,16 @@ export type ParseInt<T extends string> = T extends `${infer Int extends number}`
   : never
 
 export type ZeroDefault = ParseInt<typeof STRING_ZER0>
+
+export type AddSuffixPrefix = {
+  baseTafkeet: string
+  fractionTafkeet: string | undefined
+  baseCurrency: string
+  fractionCurrency: string
+}
+
+export type GenerateLocalizedTafkeet = {
+  numericValue: string | undefined
+  prefixLocalization: string | undefined
+  suffixTafkeet: string | undefined
+}
