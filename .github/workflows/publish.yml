@@ -20,10 +20,12 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 7
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: "pnpm"      
+          cache: "pnpm"  
+          registry-url: https://npm.pkg.github.com/    
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm install --frozen-lockfile
       - name: Create Release Pull Request or Publish
