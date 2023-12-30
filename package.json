@@ -12,8 +12,7 @@
     "dev": "vitest",
     "test": "vitest run",
     "build": "tsup index.ts --format cjs,esm --dts",
-    "lint": "tsc",
-    "release": "pnpm run build && changeset publish"
+    "lint": "tsc"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
