@@ -1,5 +1,11 @@
 # ninja-tafkeet
 
+## 0.1.2
+
+### Patch Changes
+
+- 0e409e8: of twooo
+
 ## 0.1.1
 
 ### Patch Changes
