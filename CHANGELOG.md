@@ -1,5 +1,11 @@
 # ninja-tafkeet
 
+## 0.1.1
+
+### Patch Changes
+
+- faae848: patch release
+
 ## 0.1.0
 
 ### Minor Changes
