@@ -1,5 +1,5 @@
 {
-  "name": "ninja-tafkeet",
+  "name": "@SomaiaElbaradey/ninja-tafkeet",
   "version": "0.0.1",
   "description": "tafqeet from english numbers to arabic words",
   "private": false,
@@ -23,6 +23,8 @@
     "vitest": "^1.0.4"
   },
   "publishConfig": {
-    "@SomaiaElbaradey:registry": "https://npm.pkg.github.com"
+    "@SomaiaElbaradey:registry": "https://npm.pkg.github.com",
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
