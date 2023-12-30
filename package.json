@@ -9,11 +9,12 @@
   "author": "SomaiaElbaradey",
   "license": "ISC",
   "scripts": {
+    "changeset": "changeset",
     "dev": "vitest",
     "test": "vitest run",
     "build": "tsup index.ts --format cjs,esm --dts",
     "lint": "tsc",
-    "release": "pnpm run lint && pnpm run test && pnpm run build && changeset publish"
+    "release": "pnpm run lint && pnpm run test && pnpm run build && pnpm run changeset:version && pnpm publish --access public && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
