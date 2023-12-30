@@ -24,6 +24,9 @@ jobs:
         with:
           node-version: 16.x
           cache: "pnpm"
+      - name: Authenticate to npm
+        run: npm login
+      
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm install --frozen-lockfile
       - name: Create Release Pull Request or Publish
