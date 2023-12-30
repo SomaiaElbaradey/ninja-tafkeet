@@ -1,6 +1,6 @@
 {
     "name": "ninja-tafkeet",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "tafqeet from english numbers to arabic words",
     "main": "dist/index.js",
     "module": "dist/index.mjs",

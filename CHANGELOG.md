@@ -1,5 +1,11 @@
 # ninja-tafkeet
 
+## 0.2.0
+
+### Minor Changes
+
+- b2dda29: "ninja-tafkeet": minor
+
 ## 0.1.0
 
 ### Minor Changes
