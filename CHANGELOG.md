@@ -1,5 +1,11 @@
 # ninja-tafkeet
 
+## 0.2.1
+
+### Patch Changes
+
+- c81e123: tafkeet
+
 ## 0.2.0
 
 ### Minor Changes
