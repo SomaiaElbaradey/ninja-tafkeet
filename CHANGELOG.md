@@ -1,5 +1,11 @@
 # ninja-tafkeet
 
+## 0.1.0
+
+### Minor Changes
+
+- 57119ab: this is the first release ninth trial, ooof
+
 ## 0.0.2
 
 ### Patch Changes
