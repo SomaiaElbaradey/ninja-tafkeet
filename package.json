@@ -1,6 +1,6 @@
 {
   "name": "@SomaiaElbaradey/ninja-tafkeet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "tafqeet from english numbers to arabic words",
   "private": false,
   "main": "dist/index.js",
