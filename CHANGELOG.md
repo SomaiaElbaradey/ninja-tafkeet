@@ -1,5 +1,11 @@
 # ninja-tafkeet
 
+## 0.0.2
+
+### Patch Changes
+
+- 3f0b550: summary
+
 ## 0.2.1
 
 ### Patch Changes
