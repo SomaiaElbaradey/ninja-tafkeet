@@ -2,8 +2,8 @@
   "name": "ninja-tafkeet",
   "version": "0.0.1",
   "description": "tafqeet from english numbers to arabic words",
-  "main": "dist/index.js",
   "private": false,
+  "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "author": "SomaiaElbaradey",
@@ -13,7 +13,7 @@
     "test": "vitest run",
     "build": "tsup index.ts --format cjs,esm --dts",
     "lint": "tsc",
-    "release": "pnpm run build && changeset publish"
+    "release": "pnpm run lint && pnpm run test && pnpm run build && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
