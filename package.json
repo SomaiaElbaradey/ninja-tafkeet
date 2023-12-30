@@ -13,7 +13,7 @@
     "test": "vitest run",
     "build": "tsup index.ts --format cjs,esm --dts",
     "lint": "tsc",
-    "release": "pnpm run lint && pnpm run test && pnpm run build && changeset publish --registry=https://npm.pkg.github.com/"
+    "release": "pnpm run lint && pnpm run test && pnpm run build && changeset publish --registry=https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
@@ -23,6 +23,6 @@
     "vitest": "^1.0.4"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org/"
   }
 }
