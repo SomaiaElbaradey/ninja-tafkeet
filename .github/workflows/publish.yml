@@ -25,9 +25,9 @@ jobs:
         with:
           node-version: 16.x
           cache: "pnpm"  
-          registry-url: https://npm.pkg.github.com/    
+          registry-url: https://npm.pkg.npmjs.com/    
       - name: Log in to GitHub Packages
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.TAF_TOKEN }}" > ~/.npmrc
+        run: echo "//npm.pkg.npmjs.com/:_authToken=${{ secrets.NPM_SUE_TOKEN }}" > ~/.npmrc
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm install --frozen-lockfile
       - name: Create Release Pull Request or Publish
