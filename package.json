@@ -16,6 +16,7 @@
     "release": "pnpm publish --no-git-checks && pnpm run build && pnpm publish --access public"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "prettier": "^3.1.1",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
