@@ -1,5 +1,11 @@
 # ninja-tafkeet
 
+## 0.0.2
+
+### Patch Changes
+
+- 6087475: initial release
+
 ## 0.1.7
 
 ### Patch Changes
