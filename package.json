@@ -1,6 +1,6 @@
 {
   "name": "@SomaiaElbaradey/ninja-tafkeet",
-  "version": "0.1.7",
+  "version": "0.0.1",
   "description": "tafqeet from english numbers to arabic words",
   "private": false,
   "main": "dist/index.js",
@@ -9,23 +9,16 @@
   "author": "SomaiaElbaradey",
   "license": "ISC",
   "scripts": {
-    "changeset": "changeset",
     "dev": "vitest",
     "test": "vitest run",
     "build": "tsup index.ts --format cjs,esm --dts",
     "lint": "tsc",
-    "release": "pnpm publish --no-git-checks && pnpm run lint && pnpm run test && pnpm run build && pnpm publish --access public"
+    "release": "pnpm publish --no-git-checks && pnpm run build && pnpm publish --access public"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.1",
     "prettier": "^3.1.1",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
     "vitest": "^1.0.4"
-  },
-  "publishConfig": {
-    "@SomaiaElbaradey:registry": "https://npm.pkg.github.com",
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   }
 }
