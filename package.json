@@ -14,7 +14,7 @@
     "test": "vitest run",
     "build": "tsup index.ts --format cjs,esm --dts",
     "lint": "tsc",
-    "release": "pnpm publish --no-git-checks && pnpm run lint && pnpm run test && pnpm run build && pnpm publish --access public && changeset publish"
+    "release": "pnpm publish --no-git-checks && pnpm run lint && pnpm run test && pnpm run build && pnpm publish --access public"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
