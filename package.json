@@ -14,7 +14,7 @@
     "test": "vitest run",
     "build": "tsup index.ts --format cjs,esm --dts",
     "lint": "tsc",
-    "release": "pnpm publish --no-git-checks && pnpm run lint && pnpm run test && pnpm run build && pnpm publish --access public"
+    "release": "pnpm run lint && pnpm run test && pnpm run build && pnpm publish --no-git-checks && pnpm publish --access public"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
@@ -27,5 +27,9 @@
     "@SomaiaElbaradey:registry": "https://npm.pkg.github.com",
     "access": "public",
     "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SomaiaElbaradey/ninja-tafkeet.git"
   }
 }
