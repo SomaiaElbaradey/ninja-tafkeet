@@ -38,7 +38,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_SUE_TOKEN }}
       -  run: |
           pnpm config set registry https://npm.pkg.github.com
-          pnpm set //npm.pkg.github.com/:_authToken ${{ env.NODE_AUTH_TOKEN }}
+          pnpm set //npm.pkg.github.com/:_authToken ${{ env.GITHUB_TOKEN }}
           pnpm run release
       - name: Create Release Pull Request or Publish
         id: changesets
