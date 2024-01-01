@@ -15,6 +15,9 @@ jobs:
   publish:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -25,17 +28,20 @@ jobs:
         with:
           node-version: 16.x
           cache: "pnpm"  
-          registry-url: https://npm.pkg.github.com/    
+          registry-url: https://registry.npmjs.org  
       - name: Log in to GitHub Packages
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.TAF_TOKEN }}" > ~/.npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_SUE_TOKEN }}" > ~/.npmrc
       - run: pnpm install --no-frozen-lockfile
       - run: pnpm install --frozen-lockfile
+        env:
+          GITHUB_TOKEN: ${{ secrets.TAFkEET_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_SUE_TOKEN }}
+      -  run: |
+          pnpm config set registry https://npm.pkg.github.com
+          pnpm set //npm.pkg.github.com/:_authToken ${{ env.NODE_AUTH_TOKEN }}
+          pnpm run release
       - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
         with:
           publish: pnpm run release
-        env:
-          GITHUB_TOKEN: ${{ secrets.TAFkEET_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_SUE_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_SUE_TOKEN }}
